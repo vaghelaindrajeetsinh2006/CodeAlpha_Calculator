@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator Pro | Premium Desktop App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <main class="calculator-container" role="application" aria-label="Advanced Calculator Pro">
+        <!-- Header / Controls -->
+        <header class="calculator-header">
+            <div class="brand">
+                <div class="brand-logo"></div>
+                <h1>Calculator </h1>
+            </div>
+            <div class="header-actions">
+                <button id="history-open" class="icon-btn" aria-label="Open history" title="View History">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Display Section -->
+        <section class="display-area" aria-live="polite">
+            <div class="expression-line" id="expression-preview" aria-hidden="true"></div>
+            <div class="input-line" id="current-input">0</div>
+            <div class="preview-line" id="live-result"></div>
+        </section>
+
+        <!-- Memory Controls -->
+        <div class="memory-grid">
+            <button class="mem-btn" data-action="mc" aria-label="Memory Clear">MC</button>
+            <button class="mem-btn" data-action="mr" aria-label="Memory Recall">MR</button>
+            <button class="mem-btn" data-action="m-plus" aria-label="Memory Plus">M+</button>
+            <button class="mem-btn" data-action="m-minus" aria-label="Memory Minus">M-</button>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="button-grid">
+            <!-- Row 1 -->
+            <button class="btn btn-special" data-action="clear" aria-label="All Clear">AC</button>
+            <button class="btn btn-special" data-action="delete" aria-label="Delete">⌫</button>
+            <button class="btn btn-special" data-value="%" aria-label="Percentage">%</button>
+            <button class="btn btn-operator" data-value="/" aria-label="Divide">÷</button>
+
+            <!-- Row 2 -->
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn btn-operator" data-value="*" aria-label="Multiply">×</button>
+
+            <!-- Row 3 -->
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn btn-operator" data-value="-" aria-label="Subtract">−</button>
+
+            <!-- Row 4 -->
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn btn-operator" data-value="+" aria-label="Add">+</button>
+
+            <!-- Row 5 -->
+            <button class="btn btn-utility" id="copy-btn" aria-label="Copy result" title="Copy Result">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn btn-equal" data-action="calculate" aria-label="Equal">=</button>
+        </div>
+
+        <!-- History Panel -->
+        <aside id="history-panel" class="history-panel hidden" aria-labelledby="history-title">
+            <div class="panel-header">
+                <button id="history-back" class="icon-btn" aria-label="Go back">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <h2 id="history-title">History</h2>
+                <button id="history-close" class="icon-btn" aria-label="Close history">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div class="panel-content" id="history-list">
+                <p class="empty-state">No calculations yet</p>
+            </div>
+
+            <div class="panel-footer">
+                <button id="clear-history" class="danger-btn">Clear All History</button>
+            </div>
+        </aside>
+
+       
+    </main>
+
+    <!-- Sound Effects -->
+    <audio id="click-sound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
